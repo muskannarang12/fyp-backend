@@ -12,13 +12,13 @@ const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 
-// Connect to MongoDB
+// Connect DB
 connectDB();
 
-// Middleware
+// CORS
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://creative-scrapcraft.vercel.app/"
+  "https://creative-scrapcraft.vercel.app"
 ];
 
 app.use(cors({
@@ -39,5 +39,4 @@ app.use("/api/orders", orderRoute);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/creative", creativeRoutes);
 
-// Instead of app.listen
 module.exports = app;
